@@ -4,10 +4,10 @@ RUN apt update
 RUN apt install unzip python3 lsof bash curl wget git sudo -y
 RUN mkdir -m 777 /data
 EXPOSE 25565 25575
-RUN wget https://github.com/MelanX/castBINGO/releases/download/v1.1.4/server-1.1.4.zip
-RUN mv server-1.1.4.zip /data
+RUN wget https://github.com/MelanX/castBINGO/releases/download/v1.1.5/server-1.1.5.zip
+RUN mv server-1.1.5.zip /data
 WORKDIR /data
-RUN unzip /data/server-1.1.4.zip
+RUN unzip /data/server-1.1.5.zip
 RUN echo "max-tick-time=-1" >> /data/server.properties
 RUN python3 setup_server.py
 WORKDIR /data/mods
