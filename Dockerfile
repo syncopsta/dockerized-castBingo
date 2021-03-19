@@ -9,8 +9,7 @@ RUN mv server-1.1.5.zip /data
 WORKDIR /data
 RUN unzip /data/server-1.1.5.zip
 RUN echo "max-tick-time=-1" >> /data/server.properties
+RUN rm setup_server.py
+RUN wget https://raw.githubusercontent.com/MelanX/castBINGO/master/serverdata/setup_server.py
 RUN python3 setup_server.py
-WORKDIR /data/mods
-RUN wget https://media.forgecdn.net/files/3163/347/performant-1.16.2-4-3.30m.jar
-WORKDIR /data
 ENTRYPOINT [ "java", "-jar", "forge.jar" ]
